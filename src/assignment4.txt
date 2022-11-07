@@ -1,0 +1,116 @@
+TODO, if enough time (Optional, just for fun and additional functionality)
+- Stop paddles from going off the screen
+- Small delay before new ball spawns
+- Implement sounds
+- Menus for starting and exiting game
+
+*** Assignment 4, Pong ***
+
+We're going to do a version of the Pong computer game
+https://en.wikipedia.org/wiki/Pong
+
+The game is only half implemented, and it is your job to complete it.
+
+
+Requirements
+-----------
+Game controls are
+- Left paddle Q (up), A (down)
+- Right paddle  Up arrow (up), Down arrow (down)
+- Players will get one point if other misses
+- Ball will increase speed with a 5% at each hit.
+- If ball disappears from screen, a new ball, with a random speed and random (sensible) direction
+  shows up at center of screen (forever ... or until menu File > Stop or Exit)
+- No redundant code!
+
+To run the program, run the PongGUI file (will not work right now).
+
+Directory layout
+----------------
+The application is divided over a few directories
+
+    - assets, holds all images and sounds used.
+    - src/pong
+        - event/: Classes to handle events sent from model to GUI.
+        - model/: The object model classes (the game data and logic)
+        - view/: The visible parts (the view of the model) of the program, sound
+          and the event handling from GUI to model
+        - view/theme: Theme specific classes for GUI
+
+The Object model
+------------
+- The model has no look, it's just data and logic.
+- The overall game is represented by the Pong class.
+- Pong class handles the game logic (possibly asking others to help)
+- Pong class uses two Paddle objects and a Ball object.
+
+The GUI
+--------
+This is a graphical pygame program. All graphics and event
+handling code should be in the PongGUI file.
+- The GUI has no game logic whatsoever, it's just the look and the events
+  (administration)
+
+Program is "themeable". User may choose different themes for "the look"".
+Currently there are two implemented themes, "Cool" and "Duckie".
+
+Inspect class Assets for mappings of objects and images, etc.
+
+Workflow
+--------
+Some classes are finished, see comments in code (= "Nothing to do here").
+This is a suggested workflow, you may do it differently.
+
+1. The over all goal is for now is to display the ball and the paddles in the GUI
+
+a. Implement method render() in GUI. Hint: Look at the example code in exercises
+   such as Tetris, CatchTheRain, and Asteroids.
+
+b. Decide which data (instance variables) and methods needed in Ball and Paddle.
+   This is a trial and error process to get some kind of start. Implement
+   (preliminary) classes. If duplicate data use abstract base classes.
+
+   TIP: Use upper left corner as position. Will simplify.
+   NOTE: y-axis is pointing down!
+   TIP: Use dx, dy for speed. When dx = dy = 0 object is idle.
+   NOTE: Anything you intend to draw on screen must implement interface IPositionable
+
+c. If needed, create some test for the classes in test/pong directory. Or
+   do it later when needed.
+
+d. Now concentrate on class Pong. Pong should have references to a Ball object
+   and two paddle objects (and more). Add a constructor that takes the objects as
+   parameters.
+
+e. In method new_game in PongGUI, try to build the OO-model and assign it to the instance
+   variable pong declared at start of class. Use constructors to initialize and connect objects.
+
+f. Try to run until the ball and paddles shows up
+
+2. Next goal is to get the ball to move. The moving of objects is done in method update()
+   in Pong class (the "game loop")". In the method tell the ball to move!
+
+a.  Add checks, in update(), to create a new ball if the actual escapes. Also
+    when ball escapes give some player a point.
+
+3.  Add classes for floor and ceiling. These objects will make the ball bounce
+    when colliding. Create floor and ceiling objects in newGame and
+    extend Pongs constructor to take them as parameters.
+
+4.  Add collision detection between ceiling, floor and ball. Make ball bounce.
+
+5.  Make paddles move and add collision detection for ball and paddles. No redundancy
+    for collision detection, should be done in one place and one place only.
+
+6.  Add event handling from model to GUI, using Event and EventService. If a collision
+    occurs in model send an event to GUI to inform GUI to play a sound.
+
+7. (Optional) Add a game menu, allowing players to start a new game, change theme, or
+   quit the game. (You may find and use a separate library that makes menus and widgets
+   easier to do with pygame.)
+
+7. (Optional) Add some twist(s) to the game!
+
+8. (Optional) Add a computer player (AI).
+
+

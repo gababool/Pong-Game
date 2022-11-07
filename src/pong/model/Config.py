@@ -1,0 +1,33 @@
+
+
+GAME_WIDTH = 600
+GAME_HEIGHT = 400
+BALL_SPEED_FACTOR = 1.05
+
+# COLORS (ADD MORE!)
+color_WHITE = (255, 255, 255),
+color_BLACK = (20, 20, 20)
+color_BLUE = (0, 0, 255)
+color_RED = (255, 0, 0)
+color_HOT_PINK = (255, 105, 180)
+color_BABY_BLUE = (137, 207, 240)
+color_INDIGO = (75, 0, 130)
+color_SPRING_GREEN = (0, 255, 127)
+color_AZURE = (240, 255, 255)
+color_AQUAMARINE = (127, 255, 212)
+color_EMERALD_GREEN = (80, 200, 120)
+color_AMBER = (255, 191, 0)
+color_CRIMSON = (220, 20, 60)
+color_MAUVE = (224, 176, 255)
+color_CHERRY_RED = (210, 4, 45)
+color_AQUA = (0, 255, 255)
+color_JADE_GREEN = (0, 163, 108)
+color_SAPPHIRE_BLUE = (15, 82, 186)
+color_SMOKE_GREY = (132, 136, 132)
+color_MALACHITE_GREEN = (11, 218, 81)
+color_SAFETY_ORANGE = (255, 95, 21)
+color_SEASHELL = (255, 245, 238)
+color_PASTEL_PINK = (248, 200, 220)
+color_PASTEL_YELLOW = (255, 250, 160)
+color_BRIGHT_YELLOW = (255, 234, 0)
+color_PISTACHIO_GREEN = (147, 197, 114)
